@@ -1,17 +1,27 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 
-import {ToDoContext} from '../contexts/ToDoContext.js'
+import ToDoList from './ToDoList.js';
 
 
 
-export const ToDo = () => {
-	const todos = useContext(ToDoContext);
-	console.log(todos);
+
+export const ToDo = (props) => {
+	console.log(props.item)
+	
+	const [className, setClassName] = useState('notComplete');
+	
+
+
 
 	return (
-		<section>
-			<h3>{todos.item}</h3>
-		</section>		
+			
+		<div>
+			
+			<h3>Items need to do</h3>
+			{props.item.map( item => <ToDoList key={item.id} item={item.item}/>)}		
+		</div>		
+			
 	);
 
 }
+
