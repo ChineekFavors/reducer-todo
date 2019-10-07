@@ -1,17 +1,13 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 
-
-
-
-export const Form = () => {
+export const Form = (props) => {
 	
 	const [newTodo, setNewTodo] = useState({item:''})
-	
-
+console.log(newTodo)
 	
 	const handleChange = (e) => {
 
-		e.preventDefault();
+		
 		setNewTodo({
 			
 			item: e.target.value,
@@ -19,25 +15,20 @@ export const Form = () => {
 			id: Date.now()
 
 		});	
-		console.log('form.js:Form:handleChang:newTodo',newTodo)
-		return {
-			
-			newTodo
-		};
-	}
-	const handleSubmit = (e) => {
-		e.preventDefault();
 
+		return newTodo;
+		
 	}
 	
+	
 	return (
-		<form onSubmit={ handleSubmit}>
+		<form >
 
 			<input placeholder='create a new todo item' 
 				value={newTodo.item}
 				onChange={(e) => handleChange(e)} 
 			/>
-			<button>add todo</button>
+			<button onClick={() => props.dispatch({type:'ADD_TODO',payload: newTodo})}>add todo</button>
 		</form>
 	)
 }

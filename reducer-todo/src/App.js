@@ -12,12 +12,6 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
 
-  const toggleToDo = (e) => {
-    console.log('click', e.target.className)
-    if(e.target.className === 'notComplete'){
-      e.target.className.add('completed');   
-    }
-  }
  
 
 console.log('app.js:app:state',state)
@@ -26,8 +20,8 @@ console.log('app.js:app:state',state)
     <div className="App">
    
       <h1>ToDo List</h1>
-        <Form />
-         <ToDo item={state}/>
+        <Form dispatch={dispatch} />
+         <ToDo item={state} dispatch={dispatch}/>
       
      
     </div>

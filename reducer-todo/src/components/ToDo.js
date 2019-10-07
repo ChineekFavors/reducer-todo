@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 
 import ToDoList from './ToDoList.js';
 
@@ -6,19 +6,14 @@ import ToDoList from './ToDoList.js';
 
 
 export const ToDo = (props) => {
-	console.log(props.item)
 	
-	const [className, setClassName] = useState('notComplete');
-	
-
-
-
+	console.log('ToDo.js:ToDo:props.item',props.item)
 	return (
 			
 		<div>
 			
 			<h3>Items need to do</h3>
-			{props.item.map( item => <ToDoList key={item.id} item={item.item}/>)}		
+			<ToDoList item={props.item.item} />
 		</div>		
 			
 	);

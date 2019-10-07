@@ -1,10 +1,11 @@
 import React from 'react';
 
 const ToDoList = (props) => {
-	console.log(props)
+
+	
 
 	return(
-		<p>{props.item}</p>
+		<p className='notCompleted'>{props.item}</p>
 	);
 	
 
