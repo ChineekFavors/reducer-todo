@@ -1,19 +1,22 @@
 import React from 'react';
 
-import ToDoList from './ToDoList.js';
 
 
-
-
-export const ToDo = (props) => {
+export const ToDo = (state) => {
+	// console.log('Todo.js:state',state.state)
 	
-	console.log('ToDo.js:ToDo:props.item',props.item)
+	 // state.state.map(todoItem => console.log(todoItem.item))
+
+	
 	return (
 			
 		<div>
 			
-			<h3>Items need to do</h3>
-			<ToDoList item={props.item.item} />
+			<h2>Items need to do</h2>
+			<h5>{state.state.item}</h5>
+
+			
+
 		</div>		
 			
 	);

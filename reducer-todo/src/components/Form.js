@@ -1,34 +1,33 @@
 import React, {useState} from 'react';
 
-export const Form = (props) => {
+export const Form = (state) => {
 	
-	const [newTodo, setNewTodo] = useState({item:''})
-console.log(newTodo)
+	const [newTodo, setNewTodo] = useState('')
+ // console.log('Form.js:state',newTodo)
 	
 	const handleChange = (e) => {
-
 		
-		setNewTodo({
-			
-			item: e.target.value,
-			completed : false,
-			id: Date.now()
-
-		});	
-
-		return newTodo;
+		setNewTodo( e.target.value);		
 		
 	}
+
+	const submit = (e)=> {
 	
+		e.preventDefault()
+		state.dispatch({type:'ADD_TODO',payload: newTodo})
+		// console.log('form.js:submitfunctio', newTodo)
+		setNewTodo('')
+	}
+
 	
 	return (
-		<form >
+		<form onSubmit={submit}>
 
 			<input placeholder='create a new todo item' 
-				value={newTodo.item}
+				value={newTodo}
 				onChange={(e) => handleChange(e)} 
 			/>
-			<button onClick={() => props.dispatch({type:'ADD_TODO',payload: newTodo})}>add todo</button>
+			<button >add todo</button>
 		</form>
 	)
 }

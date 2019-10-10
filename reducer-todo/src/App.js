@@ -10,18 +10,20 @@ import './App.css';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  // console.log('App.js:state', state)
+  // console.log('App.js:dispatch', dispatch)
 
 
  
 
-console.log('app.js:app:state',state)
+
 
   return (
     <div className="App">
    
       <h1>ToDo List</h1>
-        <Form dispatch={dispatch} />
-         <ToDo item={state} dispatch={dispatch}/>
+        <Form dispatch={dispatch}/>
+         <ToDo state={state} />
       
      
     </div>
