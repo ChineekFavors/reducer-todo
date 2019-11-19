@@ -20,3 +20,10 @@
 .App-link {
   color: #09d3ac;
 }
+
+div {
+  margin-bottom: 15px;
+}
+.completed {
+  text-decoration: line-through; 
+}

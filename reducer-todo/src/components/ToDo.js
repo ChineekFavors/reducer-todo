@@ -1,24 +1,35 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 
 
-export const ToDo = (state) => {
-	// console.log('Todo.js:state',state.state)
+export const ToDo = ({todos}) => {
+	console.log('todos.js:todos:',todos)
+	const handleToggle = (e) => {
+		e.preventDefault();
+		e.target.classList.toggle('completed');
+		
+		// todos.dispatch({type: "TOGGLE"});
+
+	};
 	
-	 // state.state.map(todoItem => console.log(todoItem.item))
-
 	
-	return (
-			
+	useEffect(() => {
+		
+	},[todos]);	
+	 	
+	return (	
 		<div>
-			
-			<h2>Items need to do</h2>
-			<h5>{state.state.item}</h5>
-
-			
-
-		</div>		
-			
+			<h1>Items need to do?</h1>
+			{todos.state.map(todo => 
+				<div key={todo.id}
+					className='false'
+					onClick={ handleToggle}
+				>
+					{todo.item}
+				</div>
+			)}
+			<button>clear completed</button>
+		</div>				
 	);
 
 }

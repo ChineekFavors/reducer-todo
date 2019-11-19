@@ -1,50 +1,34 @@
 
-export let initialState = 
+export let initialState = [
 	 {
 	   item: 'Learn about reducers',
 	  completed: false,
 	  id: 3892987589,
-	};
-	 
+	},
+];	 
 
 
-	
+	console.log('reducer.js: initialState', initialState)
 
-	
-
-export const reducer = (state, action) => {
-	
-	// console.log('reducer top level', state)
+export const reducer = (state = initialState, action) => {
 	
 	switch(action.type){
 		case 'TOGGLE':
-		// console.log('reducer.js:actionSwithch',state)
-			return {
-
-				state,
-				
-			
-				
-		
-		}
+			return [{
+				...state, 
+				completed: !false,
+			}]
 		case 'ADD_TODO':
-		// console.log('reducer.js:ADD-TODO',action.payload)
 		
-			return {
+			return [
 				...state,
-			item : action.payload
-			
-					
-		}	
+				 action.payload,			
+			]	
 
 		default: 
-		console.log('default')
 			return state
-					
-
+	
 	}
-
-
 		
 };
 
